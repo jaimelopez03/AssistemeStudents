@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    
+    <ion-title>Control Panel</ion-title>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content>
+  <h1> Your Courses </h1>
+  <ion-list>
+    <ion-card *ngFor="let item of myCourses, let i = index">
+      <ion-card-title> {{item.Title}} </ion-card-title>
+      <ion-card-content> Description :  {{item.Description}} </ion-card-content>
+      <ion-card-content> Teacher Name : {{item.TeacherName}} </ion-card-content>
+      <ion-card-content> Subject : {{item.Subject}} </ion-card-content>
+      <ion-card-content> Creation Date : {{item.CreationDate}} </ion-card-content>
+      <ion-card-content> Days : {{item.Days}} </ion-card-content>
+      <ion-button color="danger" (click)= "optOut(item)">Opt Out</ion-button>
+    </ion-card>
+  </ion-list>
+</ion-content>
