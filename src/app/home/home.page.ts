@@ -19,6 +19,7 @@ export class HomePage implements OnInit {
   user : any;
   searched = []
   searchBox = ""
+  subjects = "All"
 
   ngOnInit() {
     console.log(this.authService.GetID())
@@ -52,18 +53,42 @@ export class HomePage implements OnInit {
     }
   }
   searchCourses(){
-    if(this.searchBox.length > 0){
+    if(this.subjects === "All" && this.searchBox.length > 0){
       this.searched = [];
       this.courses.forEach(element => {
-        if(element.Title.toLowerCase().includes(this.searchBox.toLowerCase())){
-          this.searched.push(element)
+        if(element.Title.includes(this.searchBox)){
+          this.searched.push(element);
+        } else if(element.Subject.includes(this.searchBox)){
+          this.searched.push(element);
+        } else if(element.TeacherName.includes(this.searchBox)){
+          this.searched.push(element);
+        }
+      });
+    } else if(this.subjects !== "All" && this.searchBox.length > 0) {
+      this.searched = [];
+      this.courses.forEach(element => {
+        if(element.Title.includes(this.searchBox) && element.Subject.includes(this.subjects) ){
+          this.searched.push(element);
+        } else if(element.Subject.includes(this.searchBox) && element.Subject.includes(this.subjects)){
+          this.searched.push(element);
+        } else if(element.TeacherName.includes(this.searchBox) && element.Subject.includes(this.subjects) ){
+          this.searched.push(element);
+        }
+      });
+    } else if(this.subjects !== "All" && this.searchBox.length <= 0) {
+      this.searched = [];
+      this.courses.forEach(element => {
+        if(element.Subject.includes(this.subjects)){
+          this.searched.push(element);
         }
       });
     }
-    else {
+    else
+    {
       this.getCourses();
     }
   }
+
   async presentAlert(Header, SubHeader, Message) {
     const alert = await this.alertController.create({
       header: Header,

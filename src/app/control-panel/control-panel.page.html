@@ -5,11 +5,16 @@
     </ion-buttons>
     
     <ion-title>Control Panel</ion-title>
+
+
   </ion-toolbar>
   
 </ion-header>
 
 <ion-content>
+
+  <ion-button (click)="generatePetition()" > Generate Petition </ion-button>
+
   <h1> Your Courses </h1>
   <ion-list>
     <ion-card *ngFor="let item of myCourses, let i = index">

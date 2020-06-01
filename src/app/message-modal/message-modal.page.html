@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Message</ion-title>
+  </ion-toolbar>
+</ion-header>
+  <ion-item>
+    <ion-label> Send Message to:  {{item.name}} </ion-label> 
+    <ion-label> {{item.email}} </ion-label> 
+  </ion-item>
+
+  <ion-item> 
+    <ion-label> Title: </ion-label>
+    <ion-input [(ngModel)]="title" >  </ion-input>
+  </ion-item>
+
+  <ion-item> 
+    <ion-textarea [(ngModel)]="message">  </ion-textarea>
+  </ion-item>
+  
+
+  <ion-row>
+    <ion-col size="12">
+      <ion-button color="success" expand="block" (click)="sendMessage()" fill="solid" >Done</ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="12">
+      <ion-button color="danger" expand="block" (click)="dismiss()" fill="solid" >Close</ion-button>
+    </ion-col>
+  </ion-row>
+<ion-content>
+
+</ion-content>

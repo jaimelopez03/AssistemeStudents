@@ -21,6 +21,9 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { DatePickerModule } from 'ionic4-date-picker';
 import { ShowStudentsPageModule } from './show-students/show-students.module';
 import { EditPersonalInfoPageModule } from './edit-personal-info/edit-personal-info.module';
+import { GeneratePetitionModalPage } from './generate-petition-modal/generate-petition-modal.page';
+import { GeneratePetitionModalPageModule } from './generate-petition-modal/generate-petition-modal.module';
+import { MessageModalPageModule } from './message-modal/message-modal.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,7 +41,9 @@ import { EditPersonalInfoPageModule } from './edit-personal-info/edit-personal-i
     DatePickerModule,
     AddCourseModalPageModule,
     EditPersonalInfoPageModule,
+    GeneratePetitionModalPageModule,
     ShowStudentsPageModule,
+    MessageModalPageModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [

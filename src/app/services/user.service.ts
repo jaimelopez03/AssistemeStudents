@@ -15,6 +15,12 @@ export class UserService {
     return this.afs.doc(`students/${uid}`).valueChanges();
   }
 
+  getAllUsers() {
+    return this.afs.collection('users').snapshotChanges().pipe(
+      map(docs => docs.map(doc => doc.payload.doc.data()))
+    );
+  }
+
   createUser(user: any) {
     return this.afs.doc(`students/${user.id}`).set(user);
   }
@@ -55,6 +61,10 @@ export class UserService {
 
   updateUser(id: string, updatedUser: any) {
     return this.afs.doc(`students/${id}`).update(updatedUser);
+  }
+
+  updateTeacher(id: string, updatedUser: any) {
+    return this.afs.doc(`users/${id}`).update(updatedUser);
   }
 
   async uploadProfilePicture(uid: string, image: File) {

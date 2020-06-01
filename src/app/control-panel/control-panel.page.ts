@@ -4,6 +4,7 @@ import { ModalController, MenuController } from '@ionic/angular';
 import { AddCourseModalPage } from '../add-course-modal/add-course-modal.page';
 import { AuthService } from '../services/auth.service';
 import { ShowStudentsPage } from '../show-students/show-students.page';
+import { GeneratePetitionModalPage } from '../generate-petition-modal/generate-petition-modal.page';
 
 @Component({
   selector: 'app-control-panel',
@@ -38,6 +39,13 @@ export class ControlPanelPage implements OnInit {
   async openAddModal(){
     const modal = await this.modalCtrl.create({
       component: AddCourseModalPage
+    });
+    await modal.present();
+  }
+
+  async generatePetition(index) {
+    const modal = await this.modalCtrl.create({
+      component: GeneratePetitionModalPage
     });
     await modal.present();
   }

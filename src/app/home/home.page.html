@@ -8,7 +8,23 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar [(ngModel)]="searchBox" (ionChange)="searchCourses()" showCancelButton="always"></ion-searchbar>
+  <ion-row>
+    <ion-col size="12">
+      <ion-item>
+      <ion-searchbar [(ngModel)]="searchBox" (ionChange)="searchCourses()" showCancelButton="always"></ion-searchbar>
+        <ion-label>Subject</ion-label>
+        <ion-select (ionChange)="searchCourses()" placeholder="Subject" [(ngModel)]="subjects">
+          <ion-select-option value="All">All</ion-select-option>
+          <ion-select-option value="Math">Math</ion-select-option>
+          <ion-select-option value="Physics">Physics</ion-select-option>
+          <ion-select-option value="Biology">Biology</ion-select-option>
+          <ion-select-option value="Computer Science">Computer Science</ion-select-option>
+          <ion-select-option value="Law">Law</ion-select-option>
+          <ion-select-option value="Psicology">Psicology</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+  </ion-row>
   <h1> Community Courses </h1>
   <ion-list>
     <ion-card *ngFor="let item of searched, let i = index">
